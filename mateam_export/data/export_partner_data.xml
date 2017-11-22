@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="1">
+ 
+	    <record id="mateam_partners" model="ir.exports">
+		    <field name="name">Test List Partner</field>
+		    <field name="resource">res.partner</field>
+	    </record>	 
+
+	    <record id="mateam_partner_name" model="ir.exports.line">
+		    <field name="name">name</field>
+		    <field name="export_id" ref="mateam_export.mateam_partners"/>
+	    </record>	
+	    
+	    <record id="mateam_partner_email" model="ir.exports.line">
+		    <field name="name">email</field>
+		    <field name="export_id" ref="mateam_export.mateam_partners"/>
+	    </record>	 
+
+	    <record id="mateam_partner_display_name" model="ir.exports.line">
+		    <field name="name">display_name</field>
+		    <field name="export_id" ref="mateam_export.mateam_partners"/>
+	    </record>	 	    	       
+	      		    	         
+    </data>
+
+</odoo>
