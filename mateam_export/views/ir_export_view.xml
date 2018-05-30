@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="mateam_ir_exports_action" model="ir.actions.act_window">
+	    <field name="name">Mateam Export</field>
+	    <field name="res_model">ir.exports</field>
+	    <field name="view_type">form</field>
+	    <field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem id="mateam_ir_exports_menu"
+	          parent="base.next_id_2"
+	          name="Mateam Export"
+	          action="mateam_ir_exports_action"/>
+	
+	<record id="mateam_ir_exports_tree_view" model="ir.ui.view">
+	    <field name="name">Mateam Export tree</field>
+	    <field name="model">ir.exports</field>
+	    <field name="arch" type="xml">
+	        <tree string="Mateam Export">
+	            <field name="name"/>
+	            <field name="resource"/>
+	        </tree>
+	    </field>
+	</record>
+	
+	<record id="mateam_ir_exports_form_view" model="ir.ui.view">
+	    <field name="name">Mateam Export form</field>
+	    <field name="model">ir.exports</field>
+	    <field name="arch" type="xml">
+	        <form string="Mateam Export">
+	            <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    	<field name="ref_ir_value_id" invisible="1"/>
+                        <button name="create_action" string="Add in the 'Action' menu" type="object" attrs="{'invisible':[('ref_ir_value_id','!=',False)]}" icon="fa-plus-square" help="Display an option on related records to export this action" class="oe_stat_button"/>
+                        <button name="unlink_action" string="Remove from the 'Action' menu" type="object" attrs="{'invisible':[('ref_ir_value_id','=',False)]}" icon="fa-minus-square" help="Remove the contextual action related this action" class="oe_stat_button"/>
+                        <button name="fields_view" string="Fields views" type="object" icon="fa-code" help="Display the fields associated with this export" class="oe_stat_button"/>                        
+                    </div>	            
+		            <group>
+		                <field name="name"/>
+		                <field name="resource"/>
+		            </group>
+            <group>
+                <field name="export_fields" nolabel="1">
+                    <tree editable="bottom">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </group>		            
+	            </sheet>
+	        </form>
+	    </field>
+	</record>	
+	
+</odoo>
